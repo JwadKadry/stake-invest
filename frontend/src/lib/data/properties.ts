@@ -142,6 +142,24 @@ async function fetchFromInternalAPI(): Promise<PropertyData[]> {
   }
 }
 
+async function fetchFromLocalFile(): Promise<PropertyData[]> {
+  try {
+    const response = await fetch('/data/properties.local.json', {
+      cache: 'force-cache',
+    })
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch local properties: ${response.statusText}`)
+    }
+
+    const data = await response.json()
+    return data as PropertyData[]
+  } catch (error) {
+    console.error('Error fetching local properties:', error)
+    throw error
+  }
+}
+
 export async function fetchProperties(): Promise<PropertyData[]> {
   if (cachedProperties) {
     return cachedProperties
@@ -162,8 +180,15 @@ export async function fetchProperties(): Promise<PropertyData[]> {
     cachedProperties = apiData
     return apiData
   } catch (error) {
-    console.error('Error fetching properties:', error)
-    throw error
+    console.warn('API fetch failed, falling back to local file:', error)
+    try {
+      const localData = await fetchFromLocalFile()
+      cachedProperties = localData
+      return localData
+    } catch (fallbackError) {
+      console.error('Error fetching properties:', fallbackError)
+      throw fallbackError
+    }
   }
 }
 
@@ -186,8 +211,14 @@ export async function fetchPropertyById(id: string): Promise<PropertyData | null
     }
     return null
   } catch (error) {
-    console.error('Error fetching property by id:', error)
-    return null
+    console.warn('API fetch failed, trying local file:', error)
+    try {
+      const localData = await fetchFromLocalFile()
+      return localData.find((p) => p.id === id) || null
+    } catch (fallbackError) {
+      console.error('Error fetching property by id:', fallbackError)
+      return null
+    }
   }
 }
 
