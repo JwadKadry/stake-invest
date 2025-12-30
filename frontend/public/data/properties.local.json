@@ -1,0 +1,147 @@
+[
+  {
+    "id": "1",
+    "title": "Luxury Downtown Apartment Complex",
+    "description": "Premium residential complex in the heart of downtown with modern amenities and stunning city views. This property offers exceptional investment potential with high rental demand and strong appreciation prospects.",
+    "city": "New York",
+    "state": "NY",
+    "price": 5000000,
+    "minInvestment": 2000,
+    "expectedYield": 8.5,
+    "fundedPercentage": 0,
+    "status": "listed"
+  },
+  {
+    "id": "2",
+    "title": "Commercial Office Building",
+    "description": "Prime commercial real estate in business district with high occupancy rates and stable rental income. Located in a prime business district with excellent transportation links.",
+    "city": "San Francisco",
+    "state": "CA",
+    "price": 12000000,
+    "minInvestment": 4000,
+    "expectedYield": 7.2,
+    "fundedPercentage": 65,
+    "status": "funding"
+  },
+  {
+    "id": "3",
+    "title": "Mixed-Use Development",
+    "description": "Modern mixed-use property combining retail spaces and residential units in a growing neighborhood. Strategic location with strong demographic trends.",
+    "city": "Austin",
+    "state": "TX",
+    "price": 8500000,
+    "minInvestment": 5000,
+    "expectedYield": 9.1,
+    "fundedPercentage": 0,
+    "status": "listed"
+  },
+  {
+    "id": "4",
+    "title": "Industrial Warehouse Facility",
+    "description": "Large-scale warehouse facility in logistics hub with long-term lease agreements. Prime location for e-commerce and distribution operations.",
+    "city": "Chicago",
+    "state": "IL",
+    "price": 15000000,
+    "minInvestment": 3000,
+    "expectedYield": 6.8,
+    "fundedPercentage": 0,
+    "status": "listed"
+  },
+  {
+    "id": "5",
+    "title": "Beachfront Condominium",
+    "description": "Exclusive beachfront property with luxury amenities and high rental demand. Prime vacation rental location with strong seasonal performance.",
+    "city": "Miami",
+    "state": "FL",
+    "price": 3200000,
+    "minInvestment": 2000,
+    "expectedYield": 10.2,
+    "fundedPercentage": 42,
+    "status": "funding"
+  },
+  {
+    "id": "6",
+    "title": "Tech Campus Office Space",
+    "description": "Modern office building in tech corridor with premium tenants and high growth potential. Located in one of the fastest-growing tech markets.",
+    "city": "Seattle",
+    "state": "WA",
+    "price": 9500000,
+    "minInvestment": 5000,
+    "expectedYield": 8.8,
+    "fundedPercentage": 0,
+    "status": "listed"
+  },
+  {
+    "id": "7",
+    "title": "Historic Downtown Lofts",
+    "description": "Renovated historic building converted to luxury lofts in prime downtown location. Unique character property with strong appreciation potential.",
+    "city": "Boston",
+    "state": "MA",
+    "price": 6800000,
+    "minInvestment": 2000,
+    "expectedYield": 9.5,
+    "fundedPercentage": 0,
+    "status": "listed"
+  },
+  {
+    "id": "8",
+    "title": "Retail Shopping Center",
+    "description": "Well-established retail center with anchor tenants and strong foot traffic. Stable income stream with long-term lease agreements.",
+    "city": "Dallas",
+    "state": "TX",
+    "price": 11000000,
+    "minInvestment": 5000,
+    "expectedYield": 7.8,
+    "fundedPercentage": 0,
+    "status": "listed"
+  },
+  {
+    "id": "9",
+    "title": "Suburban Apartment Complex",
+    "description": "Well-maintained apartment complex in growing suburban area with strong rental demand and low vacancy rates.",
+    "city": "Denver",
+    "state": "CO",
+    "price": 4200000,
+    "minInvestment": 2000,
+    "expectedYield": 8.2,
+    "fundedPercentage": 0,
+    "status": "listed"
+  },
+  {
+    "id": "10",
+    "title": "Medical Office Building",
+    "description": "Specialized medical office facility with long-term healthcare tenant leases. Stable income with healthcare sector growth.",
+    "city": "Phoenix",
+    "state": "AZ",
+    "price": 7800000,
+    "minInvestment": 4000,
+    "expectedYield": 7.5,
+    "fundedPercentage": 28,
+    "status": "funding"
+  },
+  {
+    "id": "11",
+    "title": "Student Housing Complex",
+    "description": "Purpose-built student accommodation near major university campus. High occupancy rates with strong rental yields.",
+    "city": "Ann Arbor",
+    "state": "MI",
+    "price": 5600000,
+    "minInvestment": 2000,
+    "expectedYield": 9.8,
+    "fundedPercentage": 0,
+    "status": "listed"
+  },
+  {
+    "id": "12",
+    "title": "Logistics Distribution Center",
+    "description": "Modern distribution facility with excellent highway access and rail connections. Ideal for logistics and e-commerce operations.",
+    "city": "Atlanta",
+    "state": "GA",
+    "price": 13200000,
+    "minInvestment": 5000,
+    "expectedYield": 7.0,
+    "fundedPercentage": 0,
+    "status": "listed"
+  }
+]
+
