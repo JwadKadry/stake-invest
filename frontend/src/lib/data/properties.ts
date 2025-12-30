@@ -121,20 +121,23 @@ async function fetchFromExternalSource(): Promise<PropertyData[] | null> {
   }
 }
 
-async function fetchFromLocalSource(): Promise<PropertyData[]> {
+async function fetchFromInternalAPI(): Promise<PropertyData[]> {
   try {
-    const response = await fetch('/data/properties.local.json', {
-      cache: 'force-cache',
+    const response = await fetch('/api/properties', {
+      cache: 'no-store',
     })
 
     if (!response.ok) {
-      throw new Error(`Failed to fetch local properties: ${response.statusText}`)
+      throw new Error(`Failed to fetch properties: ${response.statusText}`)
     }
 
-    const data = await response.json()
-    return data as PropertyData[]
+    const result = await response.json()
+    if (result.success && result.data) {
+      return result.data as PropertyData[]
+    }
+    throw new Error('Invalid API response format')
   } catch (error) {
-    console.error('Error fetching local properties:', error)
+    console.error('Error fetching from internal API:', error)
     throw error
   }
 }
@@ -151,13 +154,13 @@ export async function fetchProperties(): Promise<PropertyData[]> {
       return externalData
     }
   } catch (error) {
-    console.warn('External fetch failed, falling back to local:', error)
+    console.warn('External fetch failed, falling back to internal API:', error)
   }
 
   try {
-    const localData = await fetchFromLocalSource()
-    cachedProperties = localData
-    return localData
+    const apiData = await fetchFromInternalAPI()
+    cachedProperties = apiData
+    return apiData
   } catch (error) {
     console.error('Error fetching properties:', error)
     throw error
@@ -166,8 +169,22 @@ export async function fetchProperties(): Promise<PropertyData[]> {
 
 export async function fetchPropertyById(id: string): Promise<PropertyData | null> {
   try {
-    const properties = await fetchProperties()
-    return properties.find((p) => p.id === id) || null
+    const response = await fetch(`/api/properties/${id}`, {
+      cache: 'no-store',
+    })
+
+    if (!response.ok) {
+      if (response.status === 404) {
+        return null
+      }
+      throw new Error(`Failed to fetch property: ${response.statusText}`)
+    }
+
+    const result = await response.json()
+    if (result.success && result.data) {
+      return result.data as PropertyData
+    }
+    return null
   } catch (error) {
     console.error('Error fetching property by id:', error)
     return null

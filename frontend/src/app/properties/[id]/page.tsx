@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useParams } from 'next/navigation'
 import Link from 'next/link'
 import Header from '@/components/layout/Header'
 import { PropertyStatus } from '@/types/domains'
@@ -20,8 +20,9 @@ interface Property {
   status: PropertyStatus
 }
 
-export default function PropertyDetailPage({ params }: { params: { id: string } }) {
-  const id = params.id
+export default function PropertyDetailPage() {
+  const params = useParams()
+  const id = typeof params.id === 'string' ? params.id : params.id?.[0] || ''
   const router = useRouter()
   const [property, setProperty] = useState<Property | null>(null)
   const [isLoading, setIsLoading] = useState(true)
